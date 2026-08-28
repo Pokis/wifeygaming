@@ -81,6 +81,32 @@ const GAMES_DATA = [
     ]
   },
   {
+    id: "sons-of-the-forest",
+    title: "Sons of the Forest",
+    subtitle: "Lush Wilderness, Mountain Cabins & Helpful AI Companions",
+    status: "released",
+    statusText: "🟢 Ready to Play Now",
+    releaseInfo: "Available on PC (Steam)",
+    steamUrl: "https://store.steampowered.com/app/1325200/Sons_Of_The_Forest/",
+    trailerVideoId: "IBOErmEOOHU",
+    bannerImage: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1325200/header.jpg",
+    vibeCategory: "building",
+    vibeCategoryName: "🏰 Building & Creating",
+    paceRating: "🌿 Free-form Exploration & Construction",
+    snackFriendliness: "☕ 8/10 — Peaceful Mode removes all enemies for pure cozy cabin vibes",
+    beginnerFriendliness: "🌱 Very customizable — Kelvin (our AI helper) gathers logs for us",
+    tags: ["Cabin Building", "Forest Wilderness", "AI Companion", "Hang Gliders", "Cozy Campfires"],
+    pitch: "We can build our dream wooden lodge nestled by a serene mountain waterfall, ride golf carts through autumn forests, glide with hang gliders, and let our sweet companion Kelvin gather all the firewood for us.",
+    plainSummary: "A gorgeous open-world survival sandbox set on a lush, photorealistic island with dynamic seasons. You can turn on Peaceful Mode to completely remove hostile threats, turning it into a relaxing luxury mountain cabin building retreat.",
+    thingsWeCanDo: [
+      "Construct an expansive multi-story timber cabin with balconies, rope bridges, and fire pits",
+      "Write orders on a notepad for Kelvin (our loyal companion) to chop logs and catch fresh fish for dinner",
+      "Cruise around the island in solar-powered golf carts and soar over mountain peaks on hang gliders",
+      "Experience stunning seasonal changes from blooming spring rivers to snowy winter landscapes",
+      "Play on Peaceful Mode for a 100% stress-free, cozy outdoor living experience"
+    ]
+  },
+  {
     id: "no-mans-sky",
     title: "No Man's Sky",
     subtitle: "Infinite Relaxing Universe, Exotic Planets & Spaceships",
