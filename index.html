@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Player 2 — Our Co-Op Adventures Lounge</title>
+  <meta name="description" content="A curated, pressure-free showcase of co-op games to explore together." />
+  
+  <!-- Open Graph & Social Sharing Meta Tags -->
+  <meta property="og:title" content="Player 2 — Our Co-Op Adventures Lounge" />
+  <meta property="og:description" content="A hand-picked collection of fun, beautiful, and cozy worlds to explore together. Zero pressure, pure fun!" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="alternate icon" href="assets/favicon.svg" />
+
+  <!-- Google Fonts: Outfit (Headings) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Confetti library for Date Night Roulette celebration -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Ambient Glowing Background Accents -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+
+  <div class="app-container">
+
+    <!-- Top Site Header & Hero Section -->
+    <header class="site-header">
+      <div class="hero-badge">
+        <span class="heart-pulse">💖</span>
+        <span>Dedicated to My Favorite Person</span>
+      </div>
+
+      <h1 class="hero-title">
+        Our Co-Op <span class="gradient-text">Adventures</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        A hand-picked collection of fun, beautiful, and cozy worlds I’d love to explore with you. 
+        Zero pressure, play however you like, take infinite tea breaks, or just browse the vibes.
+      </p>
+
+      <div class="hero-disclaimer">
+        <span class="sparkle">✨</span>
+        <span>No experience needed • No assigned roles • Total freedom to explore at your own pace</span>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="hero-actions">
+        <button id="openRouletteBtn" class="btn-roulette">
+          <span>🎲 Spin Date Night Roulette</span>
+        </button>
+        <button id="openWishlistBtn" class="btn-wishlist-view">
+          <span>💌 Our Wishlist</span>
+          <span class="wishlist-count-badge" style="display: none;">0</span>
+        </button>
+        <button id="openAddGameBtn" class="btn-wishlist-view">
+          <span>➕ Suggest a Game</span>
+        </button>
+      </div>
+
+      <!-- Highlight Stats Strip -->
+      <div class="stats-strip">
+        <div class="stat-item">
+          <span class="stat-icon">🎮</span>
+          <div><strong>18+ Curated Games</strong> (Ready & Upcoming)</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">🍿</span>
+          <div><strong>100% Snack Friendly</strong> & Easy to Pause</div>
+        </div>
+        <div class="stat-item">
+          <span class="stat-icon">🛋️</span>
+          <div><strong>Beginner Friendly</strong> with Zero Stress</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Filters & Search Section -->
+    <section class="controls-section" aria-label="Game Filters">
+      <div class="search-and-status-row">
+        <!-- Live Search Input -->
+        <div class="search-input-wrapper">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input 
+            type="text" 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Search games, vibes, or keywords (e.g. 'cozy', 'space', 'puzzles')..." 
+          />
+        </div>
+
+        <!-- Status Filter Tabs (All / Released / Upcoming) -->
+        <div class="status-filter-group" role="tablist">
+          <button class="status-tab-btn active" data-status="all">All Games</button>
+          <button class="status-tab-btn" data-status="released">🟢 Ready to Play</button>
+          <button class="status-tab-btn" data-status="upcoming">🔮 Upcoming Hype</button>
+        </div>
+      </div>
+
+      <!-- Vibe Filter Chips -->
+      <div class="vibe-chips-container" role="group" aria-label="Filter by Vibe">
+        <button class="vibe-chip active" data-vibe="all">🌟 All Vibes</button>
+        <button class="vibe-chip" data-vibe="cozy">🛋️ Cozy & Relaxed</button>
+        <button class="vibe-chip" data-vibe="puzzles">🧩 Puzzles & Big Brain</button>
+        <button class="vibe-chip" data-vibe="building">🏰 Building & Creating</button>
+        <button class="vibe-chip" data-vibe="chaos">🛒 Pure Fun & Chaos</button>
+        <button class="vibe-chip" data-vibe="adventure">⚔️ Epic Adventures & Sci-Fi</button>
+      </div>
+    </section>
+
+    <!-- Results Summary Bar -->
+    <div class="results-summary">
+      <div id="resultsCount" class="results-count">Showing <strong>18</strong> games</div>
+      <button id="clearFiltersBtn" class="clear-filters-btn">Reset Filters</button>
+    </div>
+
+    <!-- Main Dynamic Games Grid -->
+    <main id="gamesGrid" class="games-grid" aria-live="polite">
+      <!-- Populated via JavaScript (js/app.js) -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>Made with love <span class="footer-heart">💖</span> for our next gaming date night.</p>
+      <p>Whenever you want to play, I'm ready. If not, I still love you tons!</p>
+    </footer>
+
+  </div>
+
+  <!-- =========================================================================
+       Modals & Drawers
+       ========================================================================= -->
+
+  <!-- 1. Rich Game Detail Modal -->
+  <div id="gameDetailModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalGameTitle">
+    <div class="modal-container">
+      <button id="modalCloseBtn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      
+      <!-- Modal Hero Image -->
+      <div class="modal-hero">
+        <img id="modalHeroImg" class="modal-hero-img" src="" alt="Game Banner" />
+        <div class="modal-hero-overlay"></div>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-title-row">
+          <span id="modalBadgeStatus" class="card-badge-status"></span>
+          <h2 id="modalGameTitle" class="modal-game-title">Game Title</h2>
+          <p id="modalGameSubtitle" class="modal-game-subtitle">Game Subtitle</p>
+        </div>
+
+        <!-- The Pitch Banner -->
+        <div class="modal-pitch-banner">
+          <div class="modal-pitch-heading">
+            <span>💌</span>
+            <span>Why This Would Be Fun Together:</span>
+          </div>
+          <p id="modalPitchText" class="modal-pitch-text"></p>
+        </div>
+
+        <!-- Non-Gamer Plain Summary -->
+        <div class="modal-section">
+          <h3 class="modal-section-title">
+            <span>📖</span>
+            <span>What It's Actually About (In Plain English)</span>
+          </h3>
+          <p id="modalSummaryText" style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;"></p>
+        </div>
+
+        <!-- Things We Can Do Checklist -->
+        <div class="modal-section">
+          <h3 class="modal-section-title">
+            <span>✨</span>
+            <span>Ways We Can Play & Things to Do</span>
+          </h3>
+          <ul id="modalThingsList" class="modal-things-list">
+            <!-- Populated via JS -->
+          </ul>
+        </div>
+
+        <!-- Non-Gamer Vibe Specs -->
+        <div class="modal-section" style="background: var(--bg-surface-elevated); padding: 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; font-size: 0.85rem;">
+            <div>
+              <span style="color: var(--text-muted);">Pace: </span>
+              <strong id="modalPaceRating" style="color: var(--text-primary);"></strong>
+            </div>
+            <div>
+              <span style="color: var(--text-muted);">Snacks & Breaks: </span>
+              <strong id="modalSnackRating" style="color: var(--text-primary);"></strong>
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <span style="color: var(--text-muted);">Learning Curve: </span>
+              <strong id="modalBeginnerRating" style="color: var(--text-primary);"></strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Video Trailer Container -->
+        <div id="modalTrailerContainer" style="margin-top: 1.5rem;">
+          <!-- Responsive iframe rendered dynamically -->
+        </div>
+
+        <!-- Modal Action Buttons -->
+        <div class="modal-actions">
+          <button id="modalWishlistBtn" class="btn-modal-wishlist">
+            <span>🤍 Add to Our Wishlist</span>
+          </button>
+          <a id="modalSteamBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn-modal-steam">
+            <span>🔗 View on Steam / Official Site</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Date Night Roulette Modal -->
+  <div id="rouletteModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 580px;">
+      <button id="closeRouletteBtn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div class="roulette-container">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎲</div>
+        <h2 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800;">Date Night Roulette</h2>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+          Can't decide? Let fate pick our next world to explore!
+        </p>
+
+        <div class="roulette-slot-box">
+          <div id="rouletteTitle" class="roulette-slot-title">Valheim</div>
+          <div id="rouletteSubtitle" class="roulette-slot-subtitle">Viking Wilderness & Cozy Longhouses</div>
+          <p id="roulettePitch" style="margin-top: 0.75rem; font-size: 0.9rem; color: #fce7f3;"></p>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+          <button id="spinRouletteBtn" class="btn-spin-again">
+            <span>🔄 Spin Again</span>
+          </button>
+          <button id="rouletteViewDetailsBtn" class="btn-wishlist-view" style="display: none; margin-top: 1rem;">
+            <span>✨ View Game Details</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Suggest / Add Custom Game Modal -->
+  <div id="addGameModal" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal-container" style="max-width: 540px;">
+      <button id="closeAddGameBtn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      <div style="padding: 2rem;">
+        <div style="text-align: center; margin-bottom: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">💡</div>
+          <h2 style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800;">Suggest a Game</h2>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">
+            Saw something cool on TikTok, Instagram, or YouTube? Add it to our bucket list!
+          </p>
+        </div>
+
+        <form id="addGameForm" style="display: flex; flex-direction: column; gap: 1rem;">
+          <div>
+            <label for="customGameTitle" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem;">Game Name</label>
+            <input 
+              type="text" 
+              id="customGameTitle" 
+              class="search-input" 
+              placeholder="e.g. It Takes Two, Animal Crossing, The Sims..." 
+              required 
+              style="padding-left: 1rem;"
+            />
+          </div>
+
+          <div>
+            <label for="customGameVibe" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem;">Vibe / Category</label>
+            <select id="customGameVibe" class="search-input" style="padding-left: 1rem; cursor: pointer;">
+              <option value="cozy">🛋️ Cozy & Relaxed</option>
+              <option value="puzzles">🧩 Puzzles & Big Brain</option>
+              <option value="building">🏰 Building & Creating</option>
+              <option value="chaos">🛒 Pure Fun & Chaos</option>
+              <option value="adventure">⚔️ Epic Adventures & Sci-Fi</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="customGamePitch" style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.4rem;">Why it looks fun (Optional)</label>
+            <textarea 
+              id="customGamePitch" 
+              class="search-input" 
+              rows="3" 
+              placeholder="e.g. You can dress up cute animals and build a cafe together!" 
+              style="padding-left: 1rem; resize: vertical;"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn-roulette" style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+            <span>✨ Save to Our Collection</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Wishlist Drawer -->
+  <div id="wishlistDrawerBackdrop" class="wishlist-drawer-backdrop" role="dialog" aria-modal="true">
+    <div class="wishlist-drawer">
+      <div class="drawer-header">
+        <h3 class="drawer-title">
+          <span>💌</span>
+          <span>Our Saved Wishlist</span>
+        </h3>
+        <button id="closeWishlistDrawerBtn" class="modal-close-btn" style="position: static;" aria-label="Close drawer">✕</button>
+      </div>
+
+      <div id="wishlistItemsContainer" class="drawer-content">
+        <!-- Dynamically rendered bookmarked games -->
+      </div>
+
+      <div class="drawer-footer">
+        <button id="copyWishlistBtn" class="btn-copy-wishlist">
+          <span>📋 Copy Date Night Ideas</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Wishlist Trigger Button -->
+  <button id="floatingWishlistBtn" class="floating-wishlist-btn" style="display: none;" aria-label="View Wishlist">
+    <span>💌 Wishlist</span>
+    <span class="wishlist-count-badge">0</span>
+  </button>
+
+  <!-- Toast Notification Alert -->
+  <div id="toastNotification" class="toast-notification" role="status" aria-live="polite">
+    <span id="toastMessage">💖 Updated!</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/games-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
