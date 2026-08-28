@@ -550,6 +550,7 @@ body {
   width: 100%;
   max-width: 100%;
   min-width: 0;
+  cursor: pointer;
 }
 
 .game-card:hover {
@@ -565,6 +566,7 @@ body {
   height: 180px;
   background-color: #1a2234;
   overflow: hidden;
+  cursor: pointer;
 }
 
 @media (max-width: 480px) {

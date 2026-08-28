@@ -1,5 +1,5 @@
 // App Logic for "Player 2" — Curated Co-Op Games Lounge
-// Enhanced with Mobile-First UX, Touch Target Handling, and Resilient Video Embeds
+// Clean, zero-duplication, full-card click handling & reliable trailer embeds
 
 document.addEventListener('DOMContentLoaded', () => {
   // App State
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isReleased = game.status === 'released';
 
     return `
-      <div class="game-card" data-id="${game.id}">
+      <div class="game-card" data-id="${game.id}" tabindex="0" role="button" aria-label="View details for ${game.title}">
         <div class="card-media-wrapper">
           <img 
             class="card-media-img" 
@@ -324,20 +324,42 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function attachCardListeners() {
-    // Card detail buttons
-    document.querySelectorAll('.btn-card-details').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        const id = e.currentTarget.dataset.id;
+    // 1. Entire card (image, title, card body) is clickable to open details
+    document.querySelectorAll('.game-card').forEach((card) => {
+      card.addEventListener('click', (e) => {
+        // Don't trigger if user clicked bookmark button or direct steam link
+        if (e.target.closest('.btn-bookmark-card') || e.target.closest('.btn-card-steam')) {
+          return;
+        }
+        const id = card.dataset.id;
         openGameModal(id);
+      });
+
+      // Keyboard accessibility (Enter / Space opens game modal)
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          if (!e.target.closest('.btn-bookmark-card') && !e.target.closest('.btn-card-steam')) {
+            e.preventDefault();
+            const id = card.dataset.id;
+            openGameModal(id);
+          }
+        }
       });
     });
 
-    // Card bookmark buttons
+    // 2. Card bookmark buttons
     document.querySelectorAll('.btn-bookmark-card').forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const id = e.currentTarget.dataset.id;
         toggleWishlist(id);
+      });
+    });
+
+    // 3. Card Steam icon buttons (prevent bubbling to card click)
+    document.querySelectorAll('.btn-card-steam').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
       });
     });
   }
@@ -375,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </li>
     `).join('');
 
-    // Render Video Trailer with Direct YouTube Action Button & Playsinline for Mobile
+    // Render Video Trailer with Direct YouTube Action Button & Verified Embeds
     if (game.trailerVideoId) {
       const directYoutubeUrl = `https://www.youtube.com/watch?v=${game.trailerVideoId}`;
       
@@ -404,16 +426,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="local-player-notice">
               <span>💡</span>
               <div>
-                <strong>Local File Note:</strong> When opening from your hard drive, browser security may restrict inline video playback. If the embed below doesn't load, use the <em>Watch on YouTube</em> button above! (Once deployed to GitHub Pages, videos play smoothly).
+                <strong>Local File Note:</strong> Browser security blocks iframe video streaming on double-clicked local files. Use the <em>Watch on YouTube</em> button above! (On GitHub Pages, videos play directly).
               </div>
             </div>
           ` : ''}
 
           <div class="modal-trailer-wrapper">
             <iframe 
-              src="https://www.youtube-nocookie.com/embed/${game.trailerVideoId}?rel=0&playsinline=1" 
+              src="https://www.youtube.com/embed/${game.trailerVideoId}?rel=0&playsinline=1" 
               title="${game.title} Trailer" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
             ></iframe>
           </div>
@@ -594,7 +617,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function triggerCelebration() {
-    // If canvas confetti is available
     if (typeof confetti === 'function') {
       confetti({
         particleCount: 50,
