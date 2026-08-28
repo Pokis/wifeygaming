@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     searchQuery: '',
     wishlist: loadWishlist(),
     customGames: loadCustomGames(),
-    isSpinning: false
+    isSpinning: false,
+    isLocalFile: window.location.protocol === 'file:'
   };
 
   // Combine default games with any custom saved games
@@ -372,16 +373,48 @@ document.addEventListener('DOMContentLoaded', () => {
       </li>
     `).join('');
 
-    // Render Video Trailer Embed (Responsive YouTube Embed)
+    // Render Video Trailer with Direct YouTube Action Button & Robust Fallback
     if (game.trailerVideoId) {
+      const directYoutubeUrl = `https://www.youtube.com/watch?v=${game.trailerVideoId}`;
+      
       modalTrailerContainer.innerHTML = `
-        <div class="modal-trailer-wrapper">
-          <iframe 
-            src="https://www.youtube-nocookie.com/embed/${game.trailerVideoId}?rel=0" 
-            title="${game.title} Trailer" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen
-          ></iframe>
+        <div class="modal-section" style="margin-top: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.6rem; flex-wrap: wrap; gap: 0.5rem;">
+            <h3 class="modal-section-title" style="margin-bottom: 0;">
+              <span>🎬</span>
+              <span>Official Gameplay & Trailer</span>
+            </h3>
+            <a 
+              href="${directYoutubeUrl}" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn-youtube-direct"
+              title="Watch full trailer directly on YouTube"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <span>Watch on YouTube</span>
+            </a>
+          </div>
+
+          ${state.isLocalFile ? `
+            <div class="local-player-notice">
+              <span>💡</span>
+              <div>
+                <strong>Local File Note:</strong> When opening from your hard drive, browser security may restrict inline video playback. If the embed below doesn't load, use the <em>Watch on YouTube</em> button above! (Once deployed to GitHub Pages, videos play smoothly).
+              </div>
+            </div>
+          ` : ''}
+
+          <div class="modal-trailer-wrapper">
+            <iframe 
+              src="https://www.youtube.com/embed/${game.trailerVideoId}?rel=0" 
+              title="${game.title} Trailer" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
       `;
     } else {
@@ -398,7 +431,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeGameModal() {
     gameDetailModal.classList.remove('active');
     document.body.style.overflow = '';
-    // Clear iframe to stop video playback
+    // Clear iframe to stop video playback immediately
     if (modalTrailerContainer) {
       modalTrailerContainer.innerHTML = '';
     }
