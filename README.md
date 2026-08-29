@@ -28,7 +28,7 @@ This project is a bespoke web experience built for a non-gamer partner. Instead 
 
 ---
 
-## 🎮 Curated Game Catalog (19 Games)
+## 🎮 Curated Game Catalog (20 Games)
 
 | # | Game | Vibe | Status | Snack Rating | Highlights |
 |---|---|---|---|---|---|
@@ -36,21 +36,22 @@ This project is a bespoke web experience built for a non-gamer partner. Instead 
 | 2 | **Palworld** | 🛋️ Cozy & Relaxed | 🟢 Ready Now | 🍿 9/10 | Cute creature taming, flying mounts & farm automation |
 | 3 | **ASKA** | 🏰 Building & Creating | 🟢 Ready Now | ☕ 8/10 | Viking colony with helpful AI villagers who do the chores |
 | 4 | **Sons of the Forest** | 🏰 Building & Creating | 🟢 Ready Now | ☕ 8/10 | Photorealistic mountain timber lodges, AI companion Kelvin & peaceful mode |
-| 5 | **No Man's Sky** | 🛋️ Cozy & Relaxed | 🟢 Ready Now | ☕ 10/10 | Infinite colorful planets, alien pets & relaxing space flights |
-| 6 | **Supermarket Together** | 🛒 Pure Fun & Chaos | 🟢 Ready Now (Free) | 🍿 9/10 | Hilarious grocery store management, scanning & chasing shoplifters |
-| 7 | **Helldivers 2** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now | 🥤 6/10 | Cinematic movie action, funny chaos & dramatic laser strikes |
-| 8 | **Subnautica 2** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now (Early Access) | ☕ 8/10 | Alien ocean exploration, multiplayer submarines & underwater glass bases |
-| 9 | **Chrono Odyssey** | ⚔️ Epic Adventures & Sci-Fi | 🔮 Upcoming (In Dev) | 🍿 7/10 | Next-gen Unreal Engine 5 Setera realm & Chronotector time-manipulation |
-| 10 | **Slay the Spire 2** | 🧩 Puzzles & Big Brain | 🟢 Ready Now (Early Access) | ☕ 10/10 | Turn-based deckbuilding strategy with 4-player co-op & zero rush |
-| 11 | **Bellwright** | 🏰 Building & Creating | 🟢 Ready Now | ☕ 8/10 | Medieval village construction, townspeople & open world |
-| 12 | **We Were Here Tomorrow** | 🧩 Puzzles & Big Brain | 🟢 Ready Now | ☕ 9/10 | Walkie-talkie castle escape room designed purely for two |
-| 13 | **We Were Here Forever** | 🧩 Puzzles & Big Brain | 🟢 Ready Now | ☕ 9/10 | Grandest atmospheric castle mystery with duo puzzle solving |
-| 14 | **Windrose** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now (Early Access) | ☕ 8/10 | High seas pirate sailing, island treasure hunts & PvE naval battles |
-| 15 | **Guild Wars 3** | ⚔️ Epic Adventures & Sci-Fi | 🔮 Upcoming (In Dev) | 🍿 8/10 | Next-gen MMO universe renowned for zero-grind friendly co-op |
-| 16 | **Darkswarm** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now | 🥤 7/10 | Tactical top-down sci-fi action with high-tech gadgets & turrets |
-| 17 | **Aliens: Fireteam Elite 2** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now | 🥤 6/10 | Cinematic sci-fi bug hunt with auto-aiming smart guns |
-| 18 | **RuneScape: Dragonwilds** | 🛋️ Cozy & Relaxed | 🟢 Ready Now | ☕ 10/10 | Cozy fantasy skill leveling, baking, quests & baby dragons |
-| 19 | **Killing Floor 3** | 🛒 Pure Fun & Chaos | 🟢 Ready Now | 🍿 7/10 | Arcade sci-fi horde defense with laser weapons & funny moments |
+| 5 | **Satisfactory** | 🏰 Building & Creating | 🟢 Ready Now | ☕ 10/10 | Hypnotic automated factory cathedrals, hyper tubes & sipping coffee mugs |
+| 6 | **No Man's Sky** | 🛋️ Cozy & Relaxed | 🟢 Ready Now | ☕ 10/10 | Infinite colorful planets, alien pets & relaxing space flights |
+| 7 | **Supermarket Together** | 🛒 Pure Fun & Chaos | 🟢 Ready Now (Free) | 🍿 9/10 | Hilarious grocery store management, scanning & chasing shoplifters |
+| 8 | **Helldivers 2** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now | 🥤 6/10 | Cinematic movie action, funny chaos & dramatic laser strikes |
+| 9 | **Subnautica 2** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now (Early Access) | ☕ 8/10 | Alien ocean exploration, multiplayer submarines & underwater glass bases |
+| 10 | **Chrono Odyssey** | ⚔️ Epic Adventures & Sci-Fi | 🔮 Upcoming (In Dev) | 🍿 7/10 | Next-gen Unreal Engine 5 Setera realm & Chronotector time-manipulation |
+| 11 | **Slay the Spire 2** | 🧩 Puzzles & Big Brain | 🟢 Ready Now (Early Access) | ☕ 10/10 | Turn-based deckbuilding strategy with 4-player co-op & zero rush |
+| 12 | **Bellwright** | 🏰 Building & Creating | 🟢 Ready Now | ☕ 8/10 | Medieval village construction, townspeople & open world |
+| 13 | **We Were Here Tomorrow** | 🧩 Puzzles & Big Brain | 🟢 Ready Now | ☕ 9/10 | Walkie-talkie castle escape room designed purely for two |
+| 14 | **We Were Here Forever** | 🧩 Puzzles & Big Brain | 🟢 Ready Now | ☕ 9/10 | Grandest atmospheric castle mystery with duo puzzle solving |
+| 15 | **Windrose** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now (Early Access) | ☕ 8/10 | High seas pirate sailing, island treasure hunts & PvE naval battles |
+| 16 | **Guild Wars 3** | ⚔️ Epic Adventures & Sci-Fi | 🔮 Upcoming (In Dev) | 🍿 8/10 | Next-gen MMO universe renowned for zero-grind friendly co-op |
+| 17 | **Darkswarm** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now | 🥤 7/10 | Tactical top-down sci-fi action with high-tech gadgets & turrets |
+| 18 | **Aliens: Fireteam Elite 2** | ⚔️ Epic Adventures & Sci-Fi | 🟢 Ready Now | 🥤 6/10 | Cinematic sci-fi bug hunt with auto-aiming smart guns |
+| 19 | **RuneScape: Dragonwilds** | 🛋️ Cozy & Relaxed | 🟢 Ready Now | ☕ 10/10 | Cozy fantasy skill leveling, baking, quests & baby dragons |
+| 20 | **Killing Floor 3** | 🛒 Pure Fun & Chaos | 🟢 Ready Now | 🍿 7/10 | Arcade sci-fi horde defense with laser weapons & funny moments |
 
 ---
 

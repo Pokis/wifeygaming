@@ -107,6 +107,32 @@ const GAMES_DATA = [
     ]
   },
   {
+    id: "satisfactory",
+    title: "Satisfactory",
+    subtitle: "Alien Factory Paradise, Coffee Mugs & Hypnotic Conveyor Belts",
+    status: "released",
+    statusText: "🟢 Ready to Play Now",
+    releaseInfo: "Available on PC (Steam & Epic Games)",
+    steamUrl: "https://store.steampowered.com/app/526870/Satisfactory/",
+    trailerVideoId: "Jt4XOPiPJHs",
+    bannerImage: "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/526870/header.jpg",
+    vibeCategory: "building",
+    vibeCategoryName: "🏰 Building & Creating",
+    paceRating: "🧘 Pure Flow State & Creative Engineering",
+    snackFriendliness: "☕ 10/10 — Zero rush, sit back and watch your creations run",
+    beginnerFriendliness: "🌟 100% refund on all dismantles — zero mistakes, only fun",
+    tags: ["Factory Building", "Alien Planet", "Conveyor Belts", "Coffee Sipping", "Co-Op Architecture"],
+    pitch: "A ridiculously satisfying playground on a gorgeous alien planet where we build multi-story glass factories, connect hypnotic conveyor belts, ride hyper tubes across mountain ranges, and sip in-game coffee mugs.",
+    plainSummary: "A first-person open-world factory building game set on a breathtaking alien planet. It is famous for its zero-stress build mechanics—every single building can be dismantled with 100% resource refunds, so you have complete freedom to experiment.",
+    thingsWeCanDo: [
+      "Design massive aesthetic factory cathedrals with glass walls, catwalks, and neon lighting",
+      "Build a roller-coaster-style hyper-tube transportation network to zip around the planet together",
+      "Pet and tame giant bouncy Lizard Doggos who bring you rare gifts",
+      "Sip from our customized FICSIT employee coffee mugs while admiring automated production lines",
+      "Drive dune buggies, explorer trucks, and automated freight trains through lush alien biomes"
+    ]
+  },
+  {
     id: "no-mans-sky",
     title: "No Man's Sky",
     subtitle: "Infinite Relaxing Universe, Exotic Planets & Spaceships",
